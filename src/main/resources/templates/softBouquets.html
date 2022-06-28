@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Мягкие Букеты</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<main>
+    <section id="cards">
+        <div class="container">
+            <h1>Мягкие букеты</h1>
+        </div>
+
+        <div class="container">
+            <div class="container-fluid">
+    <span class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3 mb-4">
+    <span class="col-md-3">
+            <div th:insert="blocks/sidebar :: sidebar"></div>
+        </span>
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/bukets/buket-lilov-mish.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text-danger">НОВИНКА</h6>
+                    <p class="card-text text-center">Лиловый букет из мишек</p>
+                    <h6 class="text-dark text-center">4000 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#buket-lilov-mish">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="buket-lilov-mish" tabindex="-1" aria-labelledby="buket-lilov-mish" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Лиловый букет из мишек</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Порадуйте своих родных и близким прекрасным Мягким Букетом. Никто не останется равнодушным после такого чудесного и милого подарка.
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 43x33см</p>
+                                            <p class="lead">Тип - мягкие букеты</p>
+                                            <p class="lead">Материал изготовления - органза, кружево, лента атласная, игрушки</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img th:src="@{../img/bukets/buket-lilov-mish.png}" width=350 height="350" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+         <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/bukets/red-buket.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text-danger">АКЦИЯ</h6>
+                    <p class="card-text text-center">Красный букет из мишек</p>
+                    <h6 class="text-dark text-center"><s>2000 ₽</s> 1500 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#red-buket">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="red-buket" tabindex="-1" aria-labelledby="red-buket" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Красный букет из мишек</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Порадуйте своих родных и близким прекрасным Мягким Букетом. Никто не останется равнодушным после такого чудесного и милого подарка.
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 43x33см</p>
+                                            <p class="lead">Тип - мягкие букеты</p>
+                                            <p class="lead">Материал изготовления - органза, кружево, лента атласная, игрушки</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img th:src="@{../img/bukets/red-buket.png}" width=350 height="350" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/bukets/salat-buket.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text-danger">АКЦИЯ</h6>
+                    <p class="card-text text-center">Салатовый букет из мишек</p>
+                    <h6 class="text-dark text-center"><s>1500 ₽</s> 1000 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#salat-buket">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="salat-buket" tabindex="-1" aria-labelledby="salat-buket" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Красный букет из мишек</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Порадуйте своих родных и близким прекрасным Мягким Букетом. Никто не останется равнодушным после такого чудесного и милого подарка.
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 20x30см</p>
+                                            <p class="lead">Тип - мягкие букеты</p>
+                                            <p class="lead">Материал изготовления - органза, гофра, кружево, лента атласная</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img th:src="@{../img/bukets/salat-buket.png}" width=350 height="350" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3 offset-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/bukets/mish.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2021</h6>
+                    <p class="card-text text-center">Букет из мишек</p>
+                    <h6 class="text-dark text-center">3800 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#mish">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="mish" tabindex="-1" aria-labelledby="mish" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Букет из мишек</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Порадуйте своих родных и близким прекрасным Мягким Букетом. Никто не останется равнодушным после такого чудесного и милого подарка.
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 40x30см</p>
+                                            <p class="lead">Тип - мягкие букеты</p>
+                                            <p class="lead">Материал изготовления - органза, гофра, кружево, лента атласная</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div id="myCarousel210" class="carousel carousel-dark slide col-md-5" data-bs-ride="carousel" data-bs-interval="2000">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#myCarousel210" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#myCarousel210" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active carousel-item-start">
+                                                    <img th:src="@{../img/bukets/mish2.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item carousel-item-next carousel-item-start">
+                                                    <img th:src="@{../img/bukets/mish.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel210" data-bs-slide="prev">
+                                                <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Previous</div>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel210" data-bs-slide="next">
+                                                <div class="carousel-control-next-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Next</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/bukets/zai.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2021</h6>
+                    <p class="card-text text-center">Букет из Зайчиков</p>
+                    <h6 class="text-dark text-center">2100 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#zai">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="zai" tabindex="-1" aria-labelledby="zai" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Букет из Зайчиков</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Порадуйте своих родных и близким прекрасным Мягким Букетом. Никто не останется равнодушным после такого чудесного и милого подарка.
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 25x30см</p>
+                                            <p class="lead">Тип - мягкие букеты</p>
+                                            <p class="lead">Материал изготовления - органза, гофра, кружево, лента атласная</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div id="myCarousel211" class="carousel carousel-dark slide col-md-5" data-bs-ride="carousel" data-bs-interval="2000">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#myCarousel211" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#myCarousel211" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active carousel-item-start">
+                                                    <img th:src="@{../img/bukets/zai2.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item carousel-item-next carousel-item-start">
+                                                    <img th:src="@{../img/bukets/zai.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel211" data-bs-slide="prev">
+                                                <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Previous</div>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel211" data-bs-slide="next">
+                                                <div class="carousel-control-next-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Next</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/bukets/panda.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2021</h6>
+                    <p class="card-text text-center">Букет из Пандочек</p>
+                    <h6 class="text-dark text-center">3100 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#panda">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="panda" tabindex="-1" aria-labelledby="panda" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Букет из Пандочек</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Порадуйте своих родных и близким прекрасным Мягким Букетом. Никто не останется равнодушным после такого чудесного и милого подарка.
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 35x33см</p>
+                                            <p class="lead">Тип - мягкие букеты</p>
+                                            <p class="lead">Материал изготовления - органза, гофра, кружево, лента атласная</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div id="myCarousel212" class="carousel carousel-dark slide col-md-5" data-bs-ride="carousel" data-bs-interval="2000">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#myCarousel212" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#myCarousel212" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active carousel-item-start">
+                                                    <img th:src="@{../img/bukets/panda2.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item carousel-item-next carousel-item-start">
+                                                    <img th:src="@{../img/bukets/panda.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel212" data-bs-slide="prev">
+                                                <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Previous</div>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel212" data-bs-slide="next">
+                                                <div class="carousel-control-next-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Next</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+    </span>
+            </div>
+
+        </div>
+    </section>
+</main>
+<footer th:insert="blocks/footer :: footer"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+
+</body>
+</html>

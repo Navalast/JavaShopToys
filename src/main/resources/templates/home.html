@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="en">
+<head>
+    <title>Главная</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href ="@{carousel.css}"/>
+</head>
+<body>
+<header th:insert="blocks/header2 :: header2"></header>
+<main>
+
+    <div class="container">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img th:src="@{../img/fon-toys.png}" width="100%" height="100%" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="container">
+                    <div class="carousel-caption text-start text-white">
+                        <h1>В один клик.</h1>
+                        <h3>Покупайте игрушки быстро, и не выходя из дома.</h3>
+                        <p><a class="btn btn-lg btn-primary" href="/products">Перейти</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item active carousel-item-start">
+                <img th:src="@{../img/toys-polka.png}" width="100%" height="100%" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>Покупайте самое новое</h1>
+                        <h3>Эксклюзивные игрушки только в Softoys</h3>
+                        <p><a class="btn btn-lg btn-primary" href="/newest">Перейти</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item carousel-item-next carousel-item-start">
+                <img th:src="@{../img/fon-toys2.png}" width="100%" height="100%" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Новые акции</h1>
+                        <h3>Приятный подарок в виде скидки каждую неделю</h3>
+                        <p><a class="btn btn-lg btn-primary" href="/stocks">Перейти</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    </div>
+
+    <div class="container marketing">
+        <div class="row text-center">
+            <div class="col-lg-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-question-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215 0 1.344-.665 2.288-1.79 2.973-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712 1.03-.632 1.397-1.135 1.397-2.028 0-.979-.758-1.698-1.926-1.698-1.009 0-1.71.529-1.938 1.402-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09 0-.618-.473-1.092-1.095-1.092-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14Z"/>
+                </svg>
+                <h2>Почему заказ осуществляется через менеджеров?</h2>
+                <p>Все наши игрушки делаются индивидуально из дорогих гипоаллергенных материалов высокого качества, с менеджером Вы можете уточнить все детали по оформлению заказа.</p>
+            </div>
+
+            <div class="col-lg-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-question-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215 0 1.344-.665 2.288-1.79 2.973-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712 1.03-.632 1.397-1.135 1.397-2.028 0-.979-.758-1.698-1.926-1.698-1.009 0-1.71.529-1.938 1.402-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09 0-.618-.473-1.092-1.095-1.092-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14Z"/>
+                </svg>
+                <h2>Почему ваши игрушки стоят дороже?</h2>
+                <p>Почти все наши игрушки производятся из гипоаллергенных материалов, чтобы каждый человек мог получить от них удовольствие.</p>
+            </div>
+
+            <div class="col-lg-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-question-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215 0 1.344-.665 2.288-1.79 2.973-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712 1.03-.632 1.397-1.135 1.397-2.028 0-.979-.758-1.698-1.926-1.698-1.009 0-1.71.529-1.938 1.402-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09 0-.618-.473-1.092-1.095-1.092-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14Z"/>
+                </svg>
+                <h2>Как часто появляются новые акции?</h2>
+                <p>Акции в нашем магазине обновляются каждые семь дней.</p>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Первая игрушка</h2>
+                <p class="lead">Каждый ребенок считает чудом, когда ему дарят первую игрушку. Порадуйте и Вы своих детей,
+                    приходите за покупками на сайт «Softoys»! В нашем Интернет-магазине Вы найдете много различных игрушек в абсолютно разных категориях.
+                    Если Вы не знаете, какую игрушку выбрать, наши сотрудники позаботились о качественном и углубленном описании каждой игрушки.
+                    Здесь Вы точно найдете ту самую первую игрушку для Вашего ребенка.</p>
+            </div>
+            <div class="col-md-5">
+                <img th:src="@{../img/dino-girl.png}" width="100%" height="100%" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="#eee"></rect>
+
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">Любимая игрушка</h2>
+                <p class="lead">У каждого ребенка есть своя любимая игрушка, с которой он спит, ест, и самое главное, играет.
+                    В нашем Интернет-магазине Вы можете приобрести игрушки для детей любого возраста. Приобретая игрушки в «Softoys»
+                    мы гарантируем, что Ваш ребенок точно будет в восторге, а наша команда Вам в этом с радостью поможет,
+                    ведь наша главная задача заключается в том, чтобы у каждого ребенка была своя любимая игрушка.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img th:src="@{../img/deti.png}" width="526" height="526" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="#eee"></rect>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">И напоследок</h2>
+                <p class="lead">Каталог нашего магазина пополняется каждый месяц, а акции обновляются каждую неделю. Все наши игрушки
+                    производятся исключительно из высококачественных гипоаллергенных материалов строго на заказ.
+                    Наш девиз - «Дети наше всё!», поэтому другие магазины не могут сравниться с нами по качеству игрушек.
+                    Это является главной причиной покупать в «Softoys»! Если у Вас остались какие-либо вопросы, свяжитесь с нашим менеджером
+                    по телефону: +7 (964) 938-83-86.</p>
+            </div>
+            <div class="col-md-5">
+                <img th:src="@{../img/bear.png}" width="526" height="526" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%" fill="#eee"></rect>
+            </div>
+        </div>
+    </div>
+
+    <footer th:insert="blocks/footer :: footer"></footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+
+

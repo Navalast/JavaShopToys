@@ -1,0 +1,63 @@
+<div th:fragment="header" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+     xmlns:th="http://www.thymeleaf.org"
+     xmlns="http://www.w3.org/1999/html">
+    <header class="p-3 mb-3 border-bottom">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start ">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                <img th:src="@{../img/2730163.png}" width="26" height="26" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/" class="nav-link px-2 link-secondary"><h6>Главная</h6></a></li>
+                <li><a href="/newest" class="nav-link px-2 link-dark"><h6>Новинки</h6></a></li>
+                <li><a href="/products" class="nav-link px-2 link-dark"><h6>Товары</h6></a></li>
+                <li><a href="/stocks" class="nav-link px-2 link-dark"><h6>Акции</h6></a></li>
+                <li><a href="/aboutUs" class="nav-link px-2 link-dark"><h6>О Нас</h6></a></li>
+                <li sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER')"><a href="/users" class="nav-link px-2 link-dark"><h6>Пользователи</h6></a></li>
+            </ul>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                <input id="search" type="search" class="form-control form-control-dark" placeholder="Искать..." aria-label="Search">
+            </form>
+            <td align="right">
+                <div sec:authorize="isAuthenticated()">
+                    <div>
+                        <h6>Привет, <a th:href="@{/users/profile}"><span sec:authentication="principal.username"></span></a></h6>
+                    </div>
+                    <div>
+                        <h6><a th:href="@{/logout}">Выход</a></h6>
+                    </div>
+                </div>
+
+                <div sec:authorize="!isAuthenticated()">
+                    <div>
+                        <h6>Пожалуйста <a th:href="@{/login}">войдите</a></h6>
+                    </div>
+                </div>
+            </td>
+
+        </div>
+    </div>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                $("#search").keyup(function () {
+
+                    var search = $(this).val(),
+                        count = 0;
+
+                    $('#cards span').each(function () {
+
+                        if ($(this).text().search(new RegExp(search, "i")) < 0) {
+                            $(this).hide();
+
+                        } else {
+                            $(this).show('');
+                            count++;
+                        }
+                    });
+                });
+            }
+        </script>
+</header>
+</div>

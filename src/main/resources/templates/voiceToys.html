@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Говорящие Игрушки</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<main>
+    <section id="cards">
+        <div class="container">
+            <h1>Говорящие Игрушки</h1>
+        </div>
+
+        <div class="container">
+            <div class="container-fluid">
+    <span class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3 mb-4">
+    <span class="col-md-3">
+            <div th:insert="blocks/sidebar :: sidebar"></div>
+        </span>
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/berta-voice.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text-danger">АКЦИЯ</h6>
+                    <p class="card-text text-center">Коровка Берта</p>
+                    <h6 class="text-dark text-center"><s>2000 ₽</s> 1500 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group container">
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#berta-voice">Быстрый просмотр</button>
+                                <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                            </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="berta-voice" tabindex="-1" aria-labelledby="berta-voice" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                    <div class="modal-content rounded-5 shadow">
+                        <div class="modal-header p-5 pb-4 border-bottom-0">
+                            <h2 class="fw-bold mb-0">Коровка Берта</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body p-5 pt-0 ">
+                            <form class="">
+                                <div class="row featurette">
+                                    <div class="col-md-7 order-md-2">
+                                        <h2 class="featurette-heading">Описание товара</h2>
+                                        <p class="lead">На малышке Берте очаровательное комбинированное платьице, сшитое из х/б ткани и сеточки, с рукавами-фонарик и белоснежным круглым воротничком. Спереди на Берте бант семейства Бул, выполненный из капроновой ленты и броши с кельтским орнаментом.</p>
+                                        <h2 class="featurette-heading">Характеристики</h2>
+                                        <p class="lead">Размер - 17см</p>
+                                        <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                        <p class="lead">Материал изготовления - текстиль, пластик</p>
+                                        <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                    </div>
+                                    <div id="myCarousel1" class="carousel carousel-dark slide col-md-5" data-bs-ride="carousel" data-bs-interval="2000">
+                                        <div class="carousel-indicators">
+                                            <button type="button" data-bs-target="#myCarousel1" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                            <button type="button" data-bs-target="#myCarousel1" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                                            <button type="button" data-bs-target="#myCarousel1" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+                                        </div>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item">
+                                                <img th:src="@{../img/voices/berta-voice3.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                            </div>
+                                            <div class="carousel-item active carousel-item-start">
+                                                <img th:src="@{../img/voices/berta-voice2.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                            </div>
+                                            <div class="carousel-item carousel-item-next carousel-item-start">
+                                                <img th:src="@{../img/voices/berta-voice.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel1" data-bs-slide="prev">
+                                            <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+                                            <div class="visually-hidden">Previous</div>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel1" data-bs-slide="next">
+                                            <div class="carousel-control-next-icon" aria-hidden="true"></div>
+                                            <div class="visually-hidden">Next</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </span>
+        </span>
+
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/dogCrug.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2021</h6>
+                    <p class="card-text text-center">Собачка - кругляш</p>
+                    <h6 class="text-dark text-center">2500 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#dogCrug">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="dogCrug" tabindex="-1" aria-labelledby="dogCrug" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Собачка-кругляш</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Собачка-кругляш - идеальный выбор первой игрушки для Вашего ребёнка. Мягкий и приятный на ощупь пёс с радостью станет лучшим другом для Вашего малыша. Встроенный голосовой механизм умеет запоминать и воспроизводить фразы. Мы уверены, что он станет отличным дополнением для всей Вашей семьи! </p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 27 см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - полиэстер, пластик</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img th:src="@{../img/voices/dogCrug.png}" width="350" height="350" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+       <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/panda-voice.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail">
+                <div class="card-body">
+                    <h6 class="text-danger">НОВИНКА</h6>
+                    <p class="card-text text-center">Говорящая Панда</p>
+                    <h6 class="text-dark text-center">1800 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#panda-voice">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="panda-voice" tabindex="-1" aria-labelledby="panda-voice" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Говорящая Панда</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Все любят обниматься, утешать, играть и слушать. Безопасные материалы, которые прошли все проверки и сертификации обеспечат безопасность для Вас и Вашего малыша. Мягкая и пушистая панда станет идеальным дополнением для вашего дома, а так же близким другом Вашего ребенка! </p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 30 см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - полиэстер, пластик</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img th:src="@{../img/voices/panda-voice.png}" width="350" height="350" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3 offset-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/cat-fio.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2021</h6>
+                    <p class="card-text text-center">Говорящий Кот</p>
+                    <h6 class="text-dark text-center">1900 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cat-fio">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="cat-fio" tabindex="-1" aria-labelledby="cat-fioa" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Говорящий Кот</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Модный современный дизайн мягкой игрушки – это сочетание гламура и минимализма. На достаточно простом в исполнении прямоугольно-овальном туловище очень хорошо прорисована вышивкой мимика усатой мордочки кота. Особую зрелищность плюшевому котику придает шелковистая шерстка из мягкого фиолетового плюша и сверкающий комбинезон из кремово-перламутровых пайеток. Внутренняя набивка игрушки выполнена из холлофайбера. </p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 20см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - Мех искусственный, набивка халофайбер, нитка швейная, полиэстер. </p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div id="myCarousel2" class="carousel carousel-dark slide col-md-5" data-bs-ride="carousel" data-bs-interval="2000">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active carousel-item-start">
+                                                    <img th:src="@{../img/voices/cat-fio.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item carousel-item-next carousel-item-start">
+                                                    <img th:src="@{../img/voices/cat-fio2.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel2" data-bs-slide="prev">
+                                                <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Previous</div>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel2" data-bs-slide="next">
+                                                <div class="carousel-control-next-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Next</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/geterford.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2021</h6>
+                    <p class="card-text text-center">Малышка Ганя</p>
+                    <h6 class="text-dark text-center">1350 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#geterford">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="geterford" tabindex="-1" aria-labelledby="geterford" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Малышка Ганя</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Малышка Ганя Герефорд в необыкновенно-красивом свитере с орнаментом и юбочке из нежно-розовой сеточки. Свитер связан из пряжи двух цветов, белого и ярко-розового.</p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 17см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - искусственный мех, текстиль</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div id="myCarousel3" class="carousel carousel-dark slide col-md-5" data-bs-ride="carousel" data-bs-interval="2000">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#myCarousel3" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#myCarousel3" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                                                <button type="button" data-bs-target="#myCarousel3" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item">
+                                                    <img th:src="@{../img/voices/geterford4.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item active carousel-item-start">
+                                                    <img th:src="@{../img/voices/geterford2.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item carousel-item-next carousel-item-start">
+                                                    <img th:src="@{../img/voices/geterford.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel3" data-bs-slide="prev">
+                                                <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Previous</div>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel3" data-bs-slide="next">
+                                                <div class="carousel-control-next-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Next</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/girl-voice.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2021</h6>
+                    <p class="card-text text-center">Девочка Рябина</p>
+                    <h6 class="text-dark text-center">2600 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#girl-voice">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="girl-voice" tabindex="-1" aria-labelledby="girl-voice" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Девочка Рябина</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Мягкая игрушка Кукла Рябинка от бренда «Softoys» сшита из качественного текстиля и наполнителя. Эта классическая тряпичная кукла может очень понравиться малышке благодаря оригинальному дизайну и ярким цветам. Такие игрушки пользуются большой популярностью у детей, так как являются мягкими, податливыми и приятными на ощупь. Рыжеволосая румяная кукла Рябинка станет девочке игровой дочкой или верной подружкой</p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 30см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - текстиль, наполнитель</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div id="myCarousel4" class="carousel carousel-dark slide col-md-5" data-bs-ride="carousel" data-bs-interval="2000">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#myCarousel4" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#myCarousel4" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                                                <button type="button" data-bs-target="#myCarousel4" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item">
+                                                    <img th:src="@{../img/voices/girl-voice.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item active carousel-item-start">
+                                                    <img th:src="@{../img/voices/girl-voice2.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item carousel-item-next carousel-item-start">
+                                                    <img th:src="@{../img/voices/girl-voice3.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel4" data-bs-slide="prev">
+                                                <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Previous</div>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel4" data-bs-slide="next">
+                                                <div class="carousel-control-next-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Next</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+         <span class="col-md-3 offset-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/los-voice.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2020</h6>
+                    <p class="card-text text-center">Говорящий Лось</p>
+                    <h6 class="text-dark text-center">1600 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#los-voice">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="los-voice" tabindex="-1" aria-labelledby="los-voice" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Говорящий Лось</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Безопасные материалы, которые прошли все проверки и сертификации обеспечат безопасность для Вас и Вашего малыша. Весёлый и дружелюбный Лось с радостью станет другом для Вашего ребёнка и всей Вашей семьи. Он точно не даст малышу заскучать!</p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 25 см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - Мех искусственный, набивка халофайбер, нитка швейная, полиэстер.</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img th:src="@{../img/voices/los-voice.png}" width="350" height="350" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/pegas-voice.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2020</h6>
+                    <p class="card-text text-center">Говорящий Пегас</p>
+                    <h6 class="text-dark text-center">1300 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#pegas-voice">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="pegas-voice" tabindex="-1" aria-labelledby="pegas-voice" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Говорящий Пегас</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">У этого белого единорога очень необычное имя - Pegasus ("Пегас"). В отличие от настоящего пегаса, у него нет крыльев, но зато у обычных крылатых коней нет рога. Поэтому единорог по имени Пегас вполне доволен собой. Шкурка у него белая, а копытца и рог - золотые. И они отлично подчеркивают невероятные блестящие глаза золотого цвета, которыми Пегас удивленно глядит на мир. Игрушка сшита из качественных материалов и обладает самым оптимальным небольшим размером, чтобы всюду быть рядом со своим хозяином.</p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 15 см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - Мех искусственный, пластик, полиэстер.</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img th:src="@{../img/voices/pegas-voice.png}" width="350" height="350" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+         <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/rabbit-voice.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2020</h6>
+                    <p class="card-text text-center">Заяц Таллула</p>
+                    <h6 class="text-dark text-center">1400 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#rabbit-voice">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="rabbit-voice" tabindex="-1" aria-labelledby="rabbit-voice" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Заяц Таллула</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Плюшевая игрушка - Говорящий Заяц Таллула с музыкальным элементом. Предустановленная музыка скрасит Ваши хмурые дни и любую непогоду. Насладитесь весёлыми песенками Зайчика Таллула вместе со своим ребенком и всей семьей.</p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 25см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - полиэстер. </p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div id="myCarousel5" class="carousel carousel-dark slide col-md-5" data-bs-ride="carousel" data-bs-interval="2000">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#myCarousel5" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#myCarousel5" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active carousel-item-start">
+                                                    <img th:src="@{../img/voices/rabbit-voice2.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item carousel-item-next carousel-item-start">
+                                                    <img th:src="@{../img/voices/rabbit-voice.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel5" data-bs-slide="prev">
+                                                <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Previous</div>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel5" data-bs-slide="next">
+                                                <div class="carousel-control-next-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Next</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3 offset-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/sova-voice.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2020</h6>
+                    <p class="card-text text-center">Сова Сычик</p>
+                    <h6 class="text-dark text-center">1200 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#sova-voice">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="sova-voice" tabindex="-1" aria-labelledby="sova-voice" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Сова Сычик</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Мягкая игрушка по имени Сычик от бренда «Softoys» представляет милого совенка, который сможет разнообразить плюшевую коллекцию ребенка, состоящую из стандартных игрушек: мишек, зайчиков и котят. Игрушка выполнена из безопасных материалов, не вызывающих аллергии при контакте с кожей. Игрушка практически полностью окрашена в темно-коричневый цвет, выделяется лишь живот и лицо игрушки. Маленькие глаза совенка придают его образу застенчивости и вместе с тем обаяния. Игрушка сможет стать ребенку хорошим другом и поучаствовать с ним во множестве игр.</p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 30 см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - текстиль</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img th:src="@{../img/voices/sova-voice.png}" width="350" height="350" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/begemot.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2020</h6>
+                    <p class="card-text text-center">Бегемотик Арчи</p>
+                    <h6 class="text-dark text-center">1550 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#begemot">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="begemot" tabindex="-1" aria-labelledby="begemot" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Бегемотик Арчи</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Бегемотик изготовлен из искусственного меха с волнистым ворсом, материал очень мягкий и шелковистый на ощупь. Игрушка приятна визуально и тактильно. Выполнена в натуральном бежевом цвете. Маленькие глазки-бусинки вышиты. На шее бегемотика повязан пышный светлый бант в тон основной окраске. Бегемотик Арчи от «Softoys» будет хорошим подарком не только для ребенка, но и для взрослого. Размер игрушки – 25 см.  Безопасность Все мягкие игрушки «Softoys» изготовлены из высококачественных и безопасных материалов.</p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 25см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - полиэстер, текстиль</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div id="myCarousel6" class="carousel carousel-dark slide col-md-5" data-bs-ride="carousel" data-bs-interval="2000">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#myCarousel6" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#myCarousel6" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                                                <button type="button" data-bs-target="#myCarousel6" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item">
+                                                    <img th:src="@{../img/voices/begemot3.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item active carousel-item-start">
+                                                    <img th:src="@{../img/voices/begemot2.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item carousel-item-next carousel-item-start">
+                                                    <img th:src="@{../img/voices/begemot.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel6" data-bs-slide="prev">
+                                                <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Previous</div>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel6" data-bs-slide="next">
+                                                <div class="carousel-control-next-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Next</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+
+        <span class="col-md-3">
+            <span class="card shadow-sm">
+                <img th:src="@{../img/voices/enot.png}" width="100%" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <div class="card-body">
+                    <h6 class="text">Коллекция 2020</h6>
+                    <p class="card-text text-center">Говорящий Енотик</p>
+                    <h6 class="text-dark text-center">2450 ₽</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group container">
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#enot">Быстрый просмотр</button>
+                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="btn btn-sm btn-outline-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="enot" tabindex="-1" aria-labelledby="enot" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-content rounded-5 shadow">
+                            <div class="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 class="fw-bold mb-0">Говорящий Енотик</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-5 pt-0 ">
+                                <form class="">
+                                    <div class="row featurette">
+                                        <div class="col-md-7 order-md-2">
+                                            <h2 class="featurette-heading">Описание товара</h2>
+                                            <p class="lead">Мягкий, маленький и забавный енот придется по душе ребенку любого возраста, и даже взрослые будут от него в восторге.     Характеристики: Игрушка представляет собой пушистого круглого енота с добрыми глазками-бусинками и милой улыбкой. У него светло-серая шубка, беленькое брюшко и большой пушистый хвост, который делает его еще милее и забавнее. Енотик сделан из текстиля и очень приятен на ощупь, имеет следующие размеры: в высоту 30 см, в ширину 34 см, а в толщину 40 см. </p>
+                                            <h2 class="featurette-heading">Характеристики</h2>
+                                            <p class="lead">Размер - 30см</p>
+                                            <p class="lead">Тип - говорящая мягкая игрушка</p>
+                                            <p class="lead">Материал изготовления - текстиль.</p>
+                                            <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER', 'CLIENT')"><button class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/basket"' type="button">Оформить заказ</button></div>
+                                            <div sec:authorize="!isAuthenticated()"><button type="button" class="mx-auto d-grid btn btn-lg rounded-4 btn-primary" onClick='location.href="/login"'>Войдите или зарегистрируйтесь</button></div>
+                                        </div>
+                                        <div id="myCarousel7" class="carousel carousel-dark slide col-md-5" data-bs-ride="carousel" data-bs-interval="2000">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#myCarousel7" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#myCarousel7" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active carousel-item-start">
+                                                    <img th:src="@{../img/voices/enot2.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+                                                <div class="carousel-item carousel-item-next carousel-item-start">
+                                                    <img th:src="@{../img/voices/enot.png}" width="400" height="400" role="img" aria-label="Placeholder: Thumbnail">
+                                                </div>
+
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel7" data-bs-slide="prev">
+                                                <div class="carousel-control-prev-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Previous</div>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel7" data-bs-slide="next">
+                                                <div class="carousel-control-next-icon" aria-hidden="true"></div>
+                                                <div class="visually-hidden">Next</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+    </span>
+            </div>
+
+        </div>
+    </section>
+</main>
+<footer th:insert="blocks/footer :: footer"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+
+</body>
+</html>
